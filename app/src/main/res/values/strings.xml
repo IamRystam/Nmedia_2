@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NMedia</string>
+    <string name="text">NMedia!</string>
+    <string name="author_avatar">Author avatar</string>
+    <string name="more">More…</string>
+    <string name="remove">Remove</string>
+    <string name="post_text">Post text</string>
+    <string name="edit">Edit</string>
+    <string name="old_post_text">Old post text</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
+    <string name="chooser_share_post">Share</string>
+    <string name="empty_string">No text</string>
+    <string name="addPost">Add Post</string>
+</resources>

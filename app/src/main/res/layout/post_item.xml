@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/common_indent"
+>
+
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:contentDescription="@string/author_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/authorName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_indent"
+        android:layout_marginEnd="@dimen/inner_indent"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/teal_700"
+        app:layout_constraintBottom_toTopOf="@id/postDate"
+        app:layout_constraintEnd_toStartOf="@id/options"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        tools:text="Название поста очень очень очень длинное" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/postDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="#A5A5A5"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintEnd_toEndOf="@id/authorName"
+        app:layout_constraintStart_toStartOf="@id/authorName"
+        app:layout_constraintTop_toBottomOf="@id/authorName"
+        tools:text="22 апреля 2022" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/options"
+        style="@style/Widget.AppTheme.LikeCheckbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/authorName"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:icon="@drawable/ic_baseline_more_vert_24dp"
+        />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/headerBarrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar, postDate, options" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/common_indent"
+        android:textColor="#A5A5A5"
+        app:layout_constraintBottom_toTopOf="@id/videoLink"
+        app:layout_constraintTop_toBottomOf="@id/headerBarrier"
+        tools:maxHeight="250dp"
+        tools:text="@tools:sample/lorem/random" />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/videoPreview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:constraint_referenced_ids="videoLink, buttonPlay"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/videoLink"
+        app:layout_constraintBottom_toTopOf="@id/contentLink"
+        app:layout_constraintTop_toBottomOf="@id/content"
+        tools:srcCompat="@drawable/videobackground"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/buttonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_play_circle_filled_24"
+        app:layout_constraintStart_toStartOf="@id/videoLink"
+        app:layout_constraintEnd_toEndOf="@id/videoLink"
+        app:layout_constraintTop_toTopOf="@id/videoLink"
+        app:layout_constraintBottom_toBottomOf="@id/videoLink"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/contentLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#304FFE"
+        app:layout_constraintBottom_toTopOf="@id/textBarrier"
+        app:layout_constraintTop_toBottomOf="@id/content"
+        tools:layout_editor_absoluteX="16dp"
+        android:text="@string/more" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/textBarrier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:barrierDirection="top"
+        app:barrierMargin="@dimen/common_indent"
+        app:constraint_referenced_ids="likeButton,shareButton,
+        looksButton, looksCounter"
+        app:layout_constraintTop_toBottomOf="@id/contentLink" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/likeButton"
+        app:layout_constraintStart_toStartOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/textBarrier"
+        app:layout_constraintEnd_toStartOf="@id/shareButton"
+        app:icon="@drawable/ic_like_24"
+        style="@style/Widget.AppTheme.LikeCheckbox"
+        tools:text="10"
+        android:checkable="true"
+        tools:checked="true"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shareButton"
+        android:layout_marginStart="@dimen/common_indent"
+        style="@style/Widget.AppTheme.LikeCheckbox"
+        app:layout_constraintBottom_toBottomOf="@id/likeButton"
+        app:layout_constraintStart_toEndOf="@id/likeButton"
+        app:layout_constraintTop_toTopOf="@id/likeButton"
+        tools:text="10"
+        app:icon="@drawable/ic_baseline_share_24dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/looksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_baseline_visibility_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/likeButton"
+        app:layout_constraintEnd_toStartOf="@id/looksCounter"
+        app:layout_constraintTop_toTopOf="@id/likeButton"
+        android:layout_marginEnd="@dimen/inner_indent"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/looksCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="20sp"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="@id/likeButton"
+        app:layout_constraintEnd_toEndOf="@id/options"
+        app:layout_constraintTop_toTopOf="@id/likeButton"
+        tools:text="500" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

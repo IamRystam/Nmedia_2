@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="true">НМедиа</string>
+    <string name="text" translatable="true" >НМедиа!</string>
+    <string name="author_avatar">Аватар автора</string>
+    <string name="more">Подробнее…</string>
+    <string name="remove">Удалить</string>
+    <string name="post_text">Текст поста</string>
+    <string name="edit">Редактировать</string>
+    <string name="old_post_text">Текст поста до редактирования</string>
+    <string name="Cancel">Отмена</string>
+    <string name="Save">Сохранить</string>
+    <string name="chooser_share_post">Поделиться</string>
+    <string name="empty_string">Значение отсутствует</string>
+    <string name="addPost">Новый пост</string>
+</resources>
